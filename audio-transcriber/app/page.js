@@ -1,6 +1,11 @@
+import { redirect } from "next/navigation";
+import { getSession } from "@/lib/auth";
 
-export default function Home() {
-  return (
-    <h1 className="bg-red-500 w-full p-5 rounded-xl font-mono">hello world</h1>
-  );
+export default async function Home() {
+  const session = await getSession();
+  if (session) {
+    redirect("/dashboard");
+  } else {
+    redirect("/login");
+  }
 }
