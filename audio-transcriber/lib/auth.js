@@ -23,7 +23,7 @@ export async function verifyToken(token) {
   }
 }
 
-// Get current session from cookie
+// Get current session 
 export async function getSession() {
   const cookieStore = await cookies();
   const token = cookieStore.get(COOKIE_NAME)?.value;
